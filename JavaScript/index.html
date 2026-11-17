@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Выбор даты и времени — Барбершоп «Бритва»</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="header">
+<div class="container header__inner">
+<a class="header__logo" href="#">Бритва</a>
+<nav class="header__nav">
+<a class="header__link" href="#">Услуги</a>
+<a class="header__link" href="#">Мастера</a>
+<a class="header__link" href="#">Контакты</a>
+</nav>
+<a class="header__phone" href="tel:+79990000000">+7 999 000-00-00</a>
+</div>
+</header>
+
+<main class="main">
+<div class="container">
+<ol class="steps">
+<li class="steps__item steps__item--done"><span class="steps__num">1</span><span class="steps__text">Услуга</span></li>
+<li class="steps__item steps__item--done"><span class="steps__num">2</span><span class="steps__text">Мастер</span></li>
+<li class="steps__item steps__item--active"><span class="steps__num">3</span><span class="steps__text">Дата и время</span></li>
+<li class="steps__item"><span class="steps__num">4</span><span class="steps__text">Подтверждение</span></li>
+</ol>
+
+<h1 class="page-title">Выберите дату и время</h1>
+
+<div class="booking">
+<div class="booking__content">
+<section class="card calendar">
+<div class="calendar__head">
+<h2 class="calendar__month" id="calendarMonth">Ноябрь 2026</h2>
+<div class="calendar__arrows">
+<button class="calendar__arrow" id="arrowPrev" type="button" aria-label="Предыдущий месяц">‹</button>
+<button class="calendar__arrow" id="arrowNext" type="button" aria-label="Следующий месяц">›</button>
+</div>
+</div>
+<div class="calendar__grid" id="calendarGrid"></div>
+</section>
+
+<section class="card slots">
+<h2 class="card__title" id="slotsTitle">Свободное время</h2>
+<div id="slotsContainer"></div>
+<div class="slots__legend">
+<span class="slots__legend-item">Свободно</span>
+<span class="slots__legend-item slots__legend-item--busy">Занято</span>
+<span class="slots__legend-item slots__legend-item--picked">Выбрано</span>
+</div>
+</section>
+</div>
+
+<aside class="card summary">
+<h2 class="card__title">Ваша запись</h2>
+<ul class="summary__list">
+<li class="summary__row"><span class="summary__key">Услуга</span><span class="summary__value">Мужская стрижка</span></li>
+<li class="summary__row"><span class="summary__key">Мастер</span><span class="summary__value">Алексей</span></li>
+<li class="summary__row"><span class="summary__key">Дата</span><span class="summary__value" id="summaryDate">—</span></li>
+<li class="summary__row"><span class="summary__key">Время</span><span class="summary__value" id="summaryTime">—</span></li>
+</ul>
+<div class="summary__total"><span>Итого</span><span>1 800 ₽</span></div>
+<div class="summary__actions">
+<button class="button button--primary" id="buttonNext" type="button">Продолжить</button>
+<a class="button button--secondary" href="#">Назад</a>
+</div>
+</aside>
+</div>
+</div>
+</main>
+
+<footer class="footer">
+<div class="container footer__inner">
+<span>© 2026 Барбершоп «Бритва»</span>
+<span>ул. Ленина, 10 · ежедневно 10:00–21:00</span>
+<a class="footer__link" href="#">Политика конфиденциальности</a>
+</div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
