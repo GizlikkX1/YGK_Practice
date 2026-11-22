@@ -1,0 +1,5 @@
+# Runtime dependencies (all free, MIT/BSD licensed). Python 3.10+.
+fastapi>=0.110,<1.0
+uvicorn[standard]>=0.29
+sqlalchemy>=2.0,<2.2
+pydantic>=2.6,<3

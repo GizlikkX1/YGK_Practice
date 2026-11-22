@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# Local database (created on first run)
+backend/*.db
+backend/*.db-journal
+
+# OS / editors
+.DS_Store
+.idea/
+.vscode/
+
+# KDE folder settings
+.directory

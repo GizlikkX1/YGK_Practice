@@ -1,0 +1,70 @@
+/* Design tokens — 1:1 with the TaskBoard Figma mockup (palette, shadows, radii, type) */
+:root {
+  /* surfaces */
+  --bg: #F4F5F7;
+  --surface: #FFFFFF;
+  --column-bg: #EBEDF1;
+  --muted-bg: #F1F3F5;
+  --muted-hover: #DEE2E6;
+  --chip-grey: #E9ECEF;
+  --dark: #1F2430;
+
+  /* borders */
+  --border: #E3E6EB;
+  --border-strong: #CDD2DA;
+
+  /* text */
+  --text: #1A1D23;
+  --text-2: #5A6270;
+  --text-3: #8A929E;
+  --icon-muted: #ADB5BD;
+
+  /* accents */
+  --primary: #3B5BDB;
+  --primary-hover: #3451C9;
+  --primary-bg: #EDF2FF;
+  --primary-soft: #DBE4FF;
+  --link-on-dark: #91A7FF;
+  --danger: #E03131;
+  --danger-hover: #C92A2A;
+  --danger-bg: #FFF5F5;
+  --danger-soft: #FFE3E3;
+  --danger-text: #C92A2A;
+  --warn: #E67700;
+  --warn-bg: #FFF9DB;
+  --warn-border: #FFE066;
+  --warn-text: #8F4700;
+  --success: #2F9E44;
+  --success-bg: #EBFBEE;
+  --success-soft: #D3F9D8;
+  --star: #FAB005;
+  --disabled: #C9CED6;
+
+  /* priorities */
+  --pr-high-bg: #FFE3E3; --pr-high: #C92A2A;
+  --pr-mid-bg: #FFF3BF;  --pr-mid: #A35200;
+  --pr-low-bg: #E6FCF5;  --pr-low: #087F5B;
+
+  /* elevation: the mockup draws soft shadows as stacked translucent layers */
+  --shadow-1: 0 1px 0 0 rgba(11, 18, 32, .05);
+  --shadow-2: 0 3px 0 1px rgba(11, 18, 32, .05), 0 7px 0 2.5px rgba(11, 18, 32, .04);
+  --shadow-3: 0 3px 0 1px rgba(11, 18, 32, .05), 0 9px 0 3.5px rgba(11, 18, 32, .04),
+              0 18px 0 7.5px rgba(11, 18, 32, .035), 0 30px 0 13px rgba(11, 18, 32, .025);
+  --overlay: rgba(11, 18, 32, .45);
+  --overlay-light: rgba(11, 18, 32, .3);
+
+  /* radii */
+  --r-6: 6px;
+  --r-8: 8px;
+  --r-10: 10px;
+  --r-12: 12px;
+  --r-14: 14px;
+
+  /* layout */
+  --sidebar-w: 220px;
+  --col-w: 262px;
+  --card-w: 246px;
+
+  --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --ease: cubic-bezier(.2, .7, .2, 1);
+}
