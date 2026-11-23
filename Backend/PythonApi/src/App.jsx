@@ -38,7 +38,6 @@ export default function App() {
   const [todayRetryKey, setTodayRetryKey] = useState(0);
   const [slotsRetryKey, setSlotsRetryKey] = useState(0);
 
-  // Получаем текущую дату с сервера при открытии страницы.
   useEffect(() => {
     const controller = new AbortController();
     let isActive = true;
@@ -75,8 +74,6 @@ export default function App() {
     };
   }, [todayRetryKey]);
 
-  // При первом выборе даты и при каждом её изменении загружаем слоты.
-  // Cleanup + AbortController защищают интерфейс от запоздавших ответов.
   useEffect(() => {
     if (!selectedDay) return undefined;
 
@@ -96,7 +93,6 @@ export default function App() {
         });
         if (!isActive || getDateKey(selectedDay) !== requestedDateKey) return;
 
-        // Дополнительная проверка даты в ответе: не принимаем чужой/устаревший ответ.
         if (!isResponseForDate(response.date, selectedDay)) {
           throw new Error('Сервер вернул расписание для другой даты. Повторите запрос.');
         }

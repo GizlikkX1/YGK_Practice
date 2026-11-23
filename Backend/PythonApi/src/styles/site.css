@@ -84,7 +84,6 @@ a{color:inherit;text-decoration:none}
 .steps__text{display:none}
 }
 
-/* Дополнительные состояния и адаптация для React-версии */
 .option { display: block; min-width: 0; }
 .option input { inset: 0; }
 .calendar__grid > span:empty { min-height: 44px; }
@@ -102,7 +101,6 @@ a{color:inherit;text-decoration:none}
   .slots__grid { grid-template-columns: repeat(auto-fill, minmax(76px, 1fr)); }
 }
 
-/* Состояния запросов к имитационному API */
 .async-state {
   display: flex;
   flex-direction: column;

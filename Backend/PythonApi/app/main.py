@@ -1,8 +1,3 @@
-"""HTTP API барбершопа «Бритва».
-
-Запуск: uvicorn app.main:app --reload --port 8000
-"""
-
 from __future__ import annotations
 
 import asyncio
@@ -16,17 +11,14 @@ from starlette.exceptions import HTTPException as StarletteHTTPException
 from . import database
 from .schemas import ApiDate, Category, ErrorResponse, SlotsResponse
 
-# Задержка имитирует ответ настоящего сервера, чтобы во фронтенде было видно загрузку.
 API_DELAY_MS = int(os.getenv("API_DELAY_MS", "650"))
 
-app = FastAPI(title="Барбершоп «Бритва» — API")
+app = FastAPI(title='Барбершоп "Бритва" API')
 
 
 def error_response(status_code: int, message: str) -> JSONResponse:
     return JSONResponse(status_code=status_code, content={"error": message})
 
-
-# ---------- Задания 1 и 2: категории услуг ----------
 
 categories_router = APIRouter(tags=["categories"])
 
@@ -53,10 +45,7 @@ def get_category(category_id: int):
     return category
 
 
-# ---------- API для страницы записи ----------
-
 async def simulate_server(request: Request) -> None:
-    """Задержка и управляемая ошибка (?error=1) для проверки состояний интерфейса."""
     if API_DELAY_MS > 0:
         await asyncio.sleep(API_DELAY_MS / 1000)
     if request.query_params.get("error") == "1":
@@ -96,13 +85,10 @@ def slots(day: int, month: int, year: int):
 
 
 app.include_router(categories_router)
-# Те же категории под общим префиксом /api, которым пользуется фронтенд.
 app.include_router(categories_router, prefix="/api", include_in_schema=False)
 app.include_router(booking_router)
 
 
-# Фронтенд читает текст ошибки из поля "error", поэтому для /api приводим
-# стандартные ошибки FastAPI к этому формату.
 @app.exception_handler(RequestValidationError)
 async def validation_error_handler(request: Request, exc: RequestValidationError):
     if request.url.path.startswith("/api/"):

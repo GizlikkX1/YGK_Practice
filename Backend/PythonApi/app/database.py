@@ -1,14 +1,7 @@
-"""Имитация базы данных.
-
-Месяц в API — 0-индексный (январь = 0), как ожидает фронтенд.
-"""
-
 from __future__ import annotations
 
 from datetime import date
 
-# Два набора расписания: первый используется для сегодняшнего дня и чётных дат,
-# второй — для нечётных дат.
 _SLOT_SET_A: tuple[tuple[str, bool], ...] = (
     ("10:00", True), ("10:30", False), ("11:00", True), ("11:30", True),
     ("12:00", True), ("12:30", False), ("13:00", True), ("13:30", True),
@@ -27,7 +20,6 @@ _SLOT_SET_B: tuple[tuple[str, bool], ...] = (
     ("20:00", False), ("20:30", True),
 )
 
-# Категории услуг. Количество услуг задано по условию задания.
 _CATEGORIES: tuple[dict, ...] = (
     {"id": 1, "name": "Стрижки и укладки", "servicesCount": 5},
     {"id": 2, "name": "Маникюр и педикюр", "servicesCount": 5},
@@ -37,13 +29,11 @@ _CATEGORIES: tuple[dict, ...] = (
 
 
 def get_today() -> dict:
-    """Сегодняшняя дата сервера в формате API."""
     now = date.today()
     return {"day": now.day, "month": now.month - 1, "year": now.year}
 
 
 def to_date(day: int, month: int, year: int) -> date | None:
-    """Переводит дату из формата API в date; None, если такой даты нет."""
     if year < 1970 or not 0 <= month <= 11:
         return None
     try:
@@ -53,7 +43,6 @@ def to_date(day: int, month: int, year: int) -> date | None:
 
 
 def get_slots_for_date(requested: date) -> list[dict]:
-    """Возвращает новый список слотов, чтобы исходные данные нельзя было изменить."""
     source = (
         _SLOT_SET_A
         if requested == date.today() or requested.day % 2 == 0
